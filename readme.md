@@ -34,7 +34,7 @@
   ```
   cp .env.sample .env
   ```
-  生成された`.env`を自身の環境に合わせて修正
+    生成された`.env`を自身の環境に合わせて修正
 
   ```
   vim .env
@@ -73,12 +73,12 @@
 
 1. localhostにアクセス
 
-  ログイン画面が表示されれば完了
+    ログイン画面が表示されれば完了
 
 1. 管理者の登録
 
-  通常のユーザー登録を行なった後にDBから手動で`is_admin`を`1`に変更する  
-  (パスワードをハッシュ化しているため直入力を避けています)
+    通常のユーザー登録を行なった後にDBから手動で`is_admin`を`1`に変更する  
+    (パスワードをハッシュ化しているため直入力を避けています)
 
 ## プロジェクト構成
 （**編集部分のみ抜粋**）
@@ -179,15 +179,15 @@ skill_check
 </ul>
 <h3>備考</h3>
 <p>
-  アプリケーション作成にあたって行った流れを`docs/作業メモ`配下に残してあります。  
+  アプリケーション作成にあたって行った流れをdocs/作業メモ配下に残してあります。  
   何かの参考になれば。
 </p>
 <ul>
-  <li><a href="作業手順1-環境編.md">環境構築編</a></li>
-  <li><a href="作業手順2-API編.md">API編</a></li>
-  <li><a href="作業手順3-一般画面編.md">一般画面編</a></li>
-  <li><a href="作業手順4-管理画面編.md">管理画面編</a></li>
-  <li><a href="作業手順5-仕上げ編.md">仕上げ編</a></li>
-  <li><a href="作業手順6-提出編.md">提出編</a></li>
+  <li><a href="https://github.com/reeeeo/skill_check/tree/master/docs/%E4%BD%9C%E6%A5%AD%E3%83%A1%E3%83%A2/作業手順1-環境編.md">環境構築編</a></li>
+  <li><a href="https://github.com/reeeeo/skill_check/tree/master/docs/%E4%BD%9C%E6%A5%AD%E3%83%A1%E3%83%A2/作業手順2-API編.md">API編</a></li>
+  <li><a href="https://github.com/reeeeo/skill_check/tree/master/docs/%E4%BD%9C%E6%A5%AD%E3%83%A1%E3%83%A2/作業手順3-一般画面編.md">一般画面編</a></li>
+  <li><a href="https://github.com/reeeeo/skill_check/tree/master/docs/%E4%BD%9C%E6%A5%AD%E3%83%A1%E3%83%A2/作業手順4-管理画面編.md">管理画面編</a></li>
+  <li><a href="https://github.com/reeeeo/skill_check/tree/master/docs/%E4%BD%9C%E6%A5%AD%E3%83%A1%E3%83%A2/作業手順5-仕上げ編.md">仕上げ編</a></li>
+  <li><a href="https://github.com/reeeeo/skill_check/tree/master/docs/%E4%BD%9C%E6%A5%AD%E3%83%A1%E3%83%A2/作業手順6-提出編.md">提出編</a></li>
 </div>
 </details>
