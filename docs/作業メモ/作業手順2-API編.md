@@ -1,9 +1,48 @@
 # スキルチェック
 
 ## 作業手順 - API編
+1. モデルの編集
 1. 各APIコントローラを作成
 1. CRUD処理の作成
 1. JWTAuthのインストール
+
+---
+## モデルの編集
+
+### 論理削除の対応
+
+```
+use SoftDeletes;
+protected $dates = ['deleted_at'];
+```
+
+各モデルに追記。
+
+### リレーションの対応
+
+```
+belongsTo
+belongsToMany
+hasOne
+hasMany
+```
+
+必要に応じて付与。
+
+### カスケードの対応
+
+```
+protected static function boot() {
+  parent::boot();
+  static::deleting(function($親) {
+    foreach ($親->子どもたち()->get() as $子ども) {
+      $子ども->delete();
+    }
+  });
+}
+```
+
+論理削除を伝播させるために追記。
 
 ---
 ## 各APIコントローラを作成
@@ -12,16 +51,17 @@
 php artisan make:controller UserController --api
 php artisan make:controller PostController --api
 php artisan make:controller CommentController --api
+php artisan make:controller LikeController --api
 ```
 
 ---
-## 基本CRUD処理の作成
+## 基本CRUD処理の実装
 
-  - 全件検索
-  - 主キー検索
-  - 登録
-  - 更新
-  - 削除
+  - index:全件検索
+  - show:主キー検索
+  - store:登録
+  - update:更新
+  - destroy:削除
 
 ---
 
@@ -47,12 +87,12 @@ php artisan make:controller CommentController --api
 
 `config/app.php`を編集
 
-providersに
-`Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,`
-
 aliasesに
-`'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,`
-`'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,`
+
+```
+'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+```
 
 を追記。
 
@@ -71,4 +111,8 @@ aliasesに
 'jwt.refresh' => \Tymon\JWTAuth\Middleware\RefreshToken::class,
 ```
 
+を追記。
+
 ---
+
+[一般画面編](./作業手順3-一般画面編.md)へ
