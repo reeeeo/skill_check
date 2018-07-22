@@ -1,5 +1,28 @@
 # スキルチェック
 
+## バージョン情報
+
+  ```
+  $ php -v
+  PHP 7.2.1 (cli) (built: Jan  5 2018 17:34:14) ( NTS )
+  Copyright (c) 1997-2017 The PHP Group
+  Zend Engine v3.2.0, Copyright (c) 1998-2017 Zend Technologies
+  ```
+
+  ```
+  $ php artisan --version
+  Laravel Framework 5.6.28
+  ```
+
+  ```
+  $ mysql --version
+  mysql  Ver 14.14 Distrib 5.7.21, for osx10.13 (x86_64) using  EditLine wrapper
+  ```
+
+  ```
+  "vue": "^2.5.7",
+  ```
+
 ## 環境構築手順
 
 1. Gitクローン
@@ -52,6 +75,96 @@
 
   ログイン画面が表示されれば完了
 
+1. 管理者の登録
+
+  通常のユーザー登録を行なった後にDBから手動で`is_admin`を`1`に変更する  
+  (パスワードをハッシュ化しているため直入力を避けています)
+
+## プロジェクト構成
+（**編集部分のみ抜粋**）
+```
+skill_check
+|
++-- app
+|   |
+|   +-- Http
+|   |   +-- Controllers
+|   |   |   +-- CommentController.php
+|   |   |   +-- Controller.php
+|   |   |   +-- LikeController.php
+|   |   |   +-- PostController.php
+|   |   |   \-- UserController.php
+|   |   \-- Kernel.php
+|   |
+|   \-- Models
+|       +-- Comment.php
+|       +-- Like.php
+|       +-- Post.php
+|       \-- User.php
+|
++-- config
+|   \-- app.php
+|
++-- database
+|   \-- migrations
+|       +-- 2000_01_01_000000_create_comments_table.php
+|       +-- 2000_01_01_000000_create_likes_table.php
+|       +-- 2000_01_01_000000_create_posts_table.php
+|       +-- 2000_01_01_000000_create_users_table.php
+|       \-- 9999_12_31_235959_alter_tables.php
+|
++-- docs
+|   +-- 作業メモ
+|   |   +-- 作業手順1-環境編.md
+|   |   +-- 作業手順2-API編.md
+|   |   +-- 作業手順3-一般画面編.md
+|   |   +-- 作業手順4-管理画面編.md
+|   |   +-- 作業手順5-仕上げ編.md
+|   |   \-- 作業手順6-提出編.md
+|   \-- er.puml
+|
++-- public
+|   \-- css
+|       +-- layouts.css
+|       \-- styles.css
+|
++-- resources
+|   +-- assets
+|   |   \-- js
+|   |       +-- components
+|   |       |   \-- navbar.vue
+|   |       +-- pages
+|   |       |   +-- admin
+|   |       |   |   +-- comment_management.vue
+|   |       |   |   +-- like_management.vue
+|   |       |   |   +-- management.vue
+|   |       |   |   +-- post_management.vue
+|   |       |   |   \-- user_management.vue
+|   |       |   +-- index.vue
+|   |       |   \-- top.vue
+|   |       +-- services
+|   |       |   +-- http.js
+|   |       |   +-- router.js
+|   |       |   +-- routes.js
+|   |       |   \-- store.js
+|   |       +-- app.js
+|   |       +-- app.vue
+|   |       \-- bootstrap.js
+|   \-- views
+|       \-- app.blade.php
+|
++-- routes
+|   +-- api.php
+|   \-- web.php
+|
++-- .env
++-- .env.example
++-- .gitignore
++-- composer.json
++-- package.json
+\-- readme.md
+
+```
 
 ## その他
 <details>
