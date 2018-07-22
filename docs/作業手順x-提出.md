@@ -1,0 +1,22 @@
+# スキルチェック
+
+## 作業手順 - 提出編
+1. GitHubのレポジトリ作成
+1. 提出
+
+---
+## GitHubのレポジトリ作成
+Web上でレポジトリを作成
+
+---
+## 提出
+
+`git init`
+
+`git remote add origin https://github.com/reeeeo/skill_check.git`
+
+`git add .`
+
+`git commit`
+
+`git push -u origin master``

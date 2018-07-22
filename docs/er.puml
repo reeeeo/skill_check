@@ -1,0 +1,58 @@
+@startuml
+
+package "NexSeed_SkillCheck" as target_system {
+  class "users" as users {
+    id
+    ---
+    name
+    email
+    password
+    is_admin
+    remember_token
+    introduce
+    profile_img
+    cover_img
+    created_at
+    updated_at
+    deleted_at
+  }
+
+  class "posts" as posts {
+    id
+    ---
+    user_id
+    content
+    created_at
+    updated_at
+    deleted_at
+  }
+
+  class "comments" as comments {
+    id
+    ---
+    user_id
+    post_id
+    content
+    created_at
+    updated_at
+    deleted_at
+  }
+
+  class "likes" as likes {
+    id [PK]
+    ---
+    user_id
+    post_id
+    ---
+    created_at
+    updated_at
+    deleted_at
+  }
+
+  users "1"--"0..*" posts
+  posts "1"-"0..*" comments
+  users "1"--"0..*" likes
+  likes "1"-"1" posts
+}
+
+@enduml
