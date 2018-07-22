@@ -7,6 +7,16 @@
   git clone https://github.com/reeeeo/skill_check.git
   ```
 
+1. ENVファイルの編集
+  ```
+  cp .env.sample .env
+  ```
+  生成された`.env`を自身の環境に合わせて修正
+
+  ```
+  vim .env
+  ```
+
 1. Composerインストール
   ```
   composer install
@@ -22,9 +32,26 @@
   php artisan jwt:secret
   ```
 
+1. DBを作成
+
+  `.env`で設定したDB名と同じ名前のDBを作成
+  ```
+  /Applications/XAMPP/xamppfiles/bin/mysql -u{user_name} -p{password}
+  ```
+
+  ```
+  CREATE DATABASE {任意のDB名}
+  ```
+
+1. マイグレーションの実行
+  ```
+  php artisan migrate:fresh
+  ```
+
 1. localhostにアクセス
 
-  [localhost](http://localhost:8000/)
+  ログイン画面が表示されれば完了
+
 
 ## その他
 <details>
