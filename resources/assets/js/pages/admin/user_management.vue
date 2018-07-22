@@ -5,7 +5,7 @@
         Users
       </template>
       <template slot="actions" slot-scope="data">
-        <b-btn size='sm' variant="danger" @click.stop="deleteUser(data.item.id)">削除</b-btn>
+        <b-btn v-if="data.item.id != state.user.id" size='sm' variant="danger" @click.stop="deleteUser(data.item.id)">削除</b-btn>
       </template>
     </b-table>
   </div>

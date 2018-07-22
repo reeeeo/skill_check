@@ -36253,19 +36253,21 @@ var render = function() {
               key: "actions",
               fn: function(data) {
                 return [
-                  _c(
-                    "b-btn",
-                    {
-                      attrs: { size: "sm", variant: "danger" },
-                      on: {
-                        click: function($event) {
-                          $event.stopPropagation()
-                          _vm.deleteUser(data.item.id)
-                        }
-                      }
-                    },
-                    [_vm._v("削除")]
-                  )
+                  data.item.id != _vm.state.user.id
+                    ? _c(
+                        "b-btn",
+                        {
+                          attrs: { size: "sm", variant: "danger" },
+                          on: {
+                            click: function($event) {
+                              $event.stopPropagation()
+                              _vm.deleteUser(data.item.id)
+                            }
+                          }
+                        },
+                        [_vm._v("削除")]
+                      )
+                    : _vm._e()
                 ]
               }
             }
