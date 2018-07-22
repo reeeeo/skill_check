@@ -25,37 +25,43 @@
 
 ## 環境構築手順
 
-1. Gitクローン
+１. Gitクローン
+
   ```
   git clone https://github.com/reeeeo/skill_check.git
   ```
+---
+２. ENVファイルの編集
 
-1. ENVファイルの編集
   ```
   cp .env.sample .env
   ```
+
     生成された`.env`を自身の環境に合わせて修正
 
   ```
   vim .env
   ```
+---
+３. Composerインストール
 
-1. Composerインストール
   ```
   composer install
   ```
+---
+４. アプリケーションキーの発行
 
-1. アプリケーションキーの発行
   ```
   php artisan key:generate
   ```
+---
+５. JWTAuth用キーの発行
 
-1. JWTAuth用キーの発行
   ```
   php artisan jwt:secret
   ```
-
-1. DBを作成
+---
+６. DBを作成
 
   `.env`で設定したDB名と同じ名前のDBを作成
   ```
@@ -65,17 +71,18 @@
   ```
   CREATE DATABASE {任意のDB名}
   ```
+---
+７. マイグレーションの実行
 
-1. マイグレーションの実行
   ```
   php artisan migrate:fresh
   ```
-
-1. localhostにアクセス
+---
+８. localhostにアクセス
 
     ログイン画面が表示されれば完了
-
-1. 管理者の登録
+---
+９. 管理者の登録
 
     通常のユーザー登録を行なった後にDBから手動で`is_admin`を`1`に変更する  
     (パスワードをハッシュ化しているため直入力を避けています)
