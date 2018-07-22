@@ -9,9 +9,6 @@ package "NexSeed_SkillCheck" as target_system {
     password
     is_admin
     remember_token
-    introduce
-    profile_img
-    cover_img
     created_at
     updated_at
     deleted_at
@@ -51,6 +48,7 @@ package "NexSeed_SkillCheck" as target_system {
 
   users "1"--"0..*" posts
   posts "1"-"0..*" comments
+  users "1"--"0..*" comments
   users "1"--"0..*" likes
   likes "1"-"1" posts
 }
