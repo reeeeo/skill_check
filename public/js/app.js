@@ -34292,15 +34292,15 @@ if (inBrowser && window.Vue) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_index___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__pages_index__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_top__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_top___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__pages_top__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_admin_management__ = __webpack_require__(254);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_admin_management__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_admin_management___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__pages_admin_management__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_admin_user_management__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_admin_user_management__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_admin_user_management___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__pages_admin_user_management__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_admin_post_management__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_admin_post_management__ = __webpack_require__(115);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_admin_post_management___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__pages_admin_post_management__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_admin_like_management__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_admin_like_management__ = __webpack_require__(118);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_admin_like_management___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__pages_admin_like_management__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_admin_comment_management__ = __webpack_require__(266);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_admin_comment_management__ = __webpack_require__(121);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_admin_comment_management___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__pages_admin_comment_management__);
 
 
@@ -35871,21 +35871,1021 @@ if (false) {
 }
 
 /***/ }),
-/* 109 */,
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */,
-/* 114 */,
-/* 115 */,
-/* 116 */,
-/* 117 */,
-/* 118 */,
-/* 119 */,
-/* 120 */,
-/* 121 */,
-/* 122 */,
-/* 123 */,
+/* 109 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(9)
+/* script */
+var __vue_script__ = __webpack_require__(110)
+/* template */
+var __vue_template__ = __webpack_require__(111)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/pages/admin/management.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4a8f03a0", Component.options)
+  } else {
+    hotAPI.reload("data-v-4a8f03a0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 110 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_store__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_http__ = __webpack_require__(12);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.goNextPage();
+    this.fetchUsers();
+    this.fetchPosts();
+    this.fetchLikes();
+    this.fetchComments();
+  },
+  data: function data() {
+    return {
+      state: __WEBPACK_IMPORTED_MODULE_0__services_store__["a" /* default */].state,
+      users: [],
+      posts: [],
+      likes: [],
+      comments: []
+    };
+  },
+
+  methods: {
+    fetchUsers: function fetchUsers() {
+      var _this = this;
+
+      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].get('fetch_users', function (res) {
+        _this.users = res.data.users;
+      });
+    },
+    fetchPosts: function fetchPosts() {
+      var _this2 = this;
+
+      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].get('fetch_posts', function (res) {
+        _this2.posts = res.data.posts;
+      });
+    },
+    fetchLikes: function fetchLikes() {
+      var _this3 = this;
+
+      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].get('fetch_likes', function (res) {
+        _this3.likes = res.data.likes;
+      });
+    },
+    fetchComments: function fetchComments() {
+      var _this4 = this;
+
+      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].get('fetch_comments', function (res) {
+        _this4.comments = res.data.comments;
+      });
+    },
+    goNextPage: function goNextPage() {
+      if (this.state.authenticated) {
+        if (!this.state.user.is_admin) {
+          this.$router.push('/top');
+        }
+      } else {
+        this.$router.push('/');
+      }
+    }
+  }
+});
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "b-list-group",
+        { staticClass: "col-8 mx-auto my-2" },
+        [
+          _c(
+            "b-list-group-item",
+            {
+              staticClass: "d-flex justify-content-between align-items-center"
+            },
+            [
+              _vm._v("\n      ユーザー数\n      "),
+              _c("b-badge", { attrs: { variant: "primary", pill: "" } }, [
+                _vm._v(_vm._s(_vm.users.length))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-list-group-item",
+            {
+              staticClass: "d-flex justify-content-between align-items-center"
+            },
+            [
+              _vm._v("\n      投稿数\n      "),
+              _c("b-badge", { attrs: { variant: "primary", pill: "" } }, [
+                _vm._v(_vm._s(_vm.posts.length))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-list-group-item",
+            {
+              staticClass: "d-flex justify-content-between align-items-center"
+            },
+            [
+              _vm._v("\n      いいね数\n      "),
+              _c("b-badge", { attrs: { variant: "primary", pill: "" } }, [
+                _vm._v(_vm._s(_vm.likes.length))
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-list-group-item",
+            {
+              staticClass: "d-flex justify-content-between align-items-center"
+            },
+            [
+              _vm._v("\n      コメント数\n      "),
+              _c("b-badge", { attrs: { variant: "primary", pill: "" } }, [
+                _vm._v(_vm._s(_vm.comments.length))
+              ])
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4a8f03a0", module.exports)
+  }
+}
+
+/***/ }),
+/* 112 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(9)
+/* script */
+var __vue_script__ = __webpack_require__(113)
+/* template */
+var __vue_template__ = __webpack_require__(114)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/pages/admin/user_management.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-348355ac", Component.options)
+  } else {
+    hotAPI.reload("data-v-348355ac", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 113 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_store__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_http__ = __webpack_require__(12);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.goNextPage();
+    this.fetchUsers();
+  },
+  data: function data() {
+    return {
+      state: __WEBPACK_IMPORTED_MODULE_0__services_store__["a" /* default */].state,
+      fields: {
+        name: {
+          label: '名前',
+          sortable: true
+        },
+        email: {
+          label: 'メールアドレス',
+          sortable: true
+        },
+        is_admin: {
+          label: '権限',
+          sortable: true
+        },
+        created_at: {
+          lable: '登録日',
+          sortable: true
+        },
+        actions: {
+          label: '操作'
+        }
+      },
+      users: []
+    };
+  },
+
+  methods: {
+    fetchUsers: function fetchUsers() {
+      var _this = this;
+
+      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].get('fetch_users', function (res) {
+        _this.users = res.data.users;
+      });
+    },
+    deleteUser: function deleteUser(userId) {
+      var _this2 = this;
+
+      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].delete('users/' + userId, function (res) {
+        _this2.fetchUsers();
+      });
+    },
+    goNextPage: function goNextPage() {
+      if (this.state.authenticated) {
+        if (!this.state.user.is_admin) {
+          this.$router.push('/top');
+        }
+      } else {
+        this.$router.push('/');
+      }
+    }
+  }
+});
+
+/***/ }),
+/* 114 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "b-table",
+        {
+          staticClass: "mx-auto my-2",
+          attrs: {
+            striped: "",
+            hover: "",
+            items: _vm.users,
+            fields: _vm.fields,
+            "caption-top": ""
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "actions",
+              fn: function(data) {
+                return [
+                  _c(
+                    "b-btn",
+                    {
+                      attrs: { size: "sm", variant: "danger" },
+                      on: {
+                        click: function($event) {
+                          $event.stopPropagation()
+                          _vm.deleteUser(data.item.id)
+                        }
+                      }
+                    },
+                    [_vm._v("削除")]
+                  )
+                ]
+              }
+            }
+          ])
+        },
+        [
+          _c("template", { slot: "table-caption" }, [
+            _vm._v("\n      Users\n    ")
+          ])
+        ],
+        2
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-348355ac", module.exports)
+  }
+}
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(9)
+/* script */
+var __vue_script__ = __webpack_require__(116)
+/* template */
+var __vue_template__ = __webpack_require__(117)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/pages/admin/post_management.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-08de7896", Component.options)
+  } else {
+    hotAPI.reload("data-v-08de7896", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 116 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_store__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_http__ = __webpack_require__(12);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.goNextPage();
+    this.fetchPosts();
+  },
+  data: function data() {
+    return {
+      state: __WEBPACK_IMPORTED_MODULE_0__services_store__["a" /* default */].state,
+      fields: {
+        id: {
+          label: 'ID',
+          sortable: true
+        },
+        content: {
+          label: '内容'
+        },
+        userName: {
+          label: '投稿者',
+          sortable: true
+        },
+        actions: {
+          label: '操作'
+        }
+      },
+      posts: []
+    };
+  },
+
+  methods: {
+    fetchPosts: function fetchPosts() {
+      var _this = this;
+
+      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].get('fetch_posts', function (res) {
+        _this.posts = res.data.posts;
+      });
+    },
+    deletePost: function deletePost(postId) {
+      var _this2 = this;
+
+      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].delete('posts/' + postId, function (res) {
+        _this2.fetchPosts();
+      });
+    },
+    goNextPage: function goNextPage() {
+      if (this.state.authenticated) {
+        if (!this.state.user.is_admin) {
+          this.$router.push('/top');
+        }
+      } else {
+        this.$router.push('/');
+      }
+    }
+  }
+});
+
+/***/ }),
+/* 117 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "b-table",
+        {
+          staticClass: "mx-auto my-2",
+          attrs: {
+            striped: "",
+            hover: "",
+            items: _vm.posts,
+            fields: _vm.fields,
+            "caption-top": ""
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "userName",
+              fn: function(data) {
+                return [
+                  _vm._v("\n      " + _vm._s(data.item.user.name) + "\n    ")
+                ]
+              }
+            },
+            {
+              key: "actions",
+              fn: function(data) {
+                return [
+                  _c(
+                    "b-btn",
+                    {
+                      attrs: { size: "sm", variant: "danger" },
+                      on: {
+                        click: function($event) {
+                          $event.stopPropagation()
+                          _vm.deletePost(data.item.id)
+                        }
+                      }
+                    },
+                    [_vm._v("削除")]
+                  )
+                ]
+              }
+            }
+          ])
+        },
+        [
+          _c("template", { slot: "table-caption" }, [
+            _vm._v("\n      Posts\n    ")
+          ])
+        ],
+        2
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-08de7896", module.exports)
+  }
+}
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(9)
+/* script */
+var __vue_script__ = __webpack_require__(119)
+/* template */
+var __vue_template__ = __webpack_require__(120)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/pages/admin/like_management.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-6ca0ffde", Component.options)
+  } else {
+    hotAPI.reload("data-v-6ca0ffde", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 119 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_store__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_http__ = __webpack_require__(12);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.goNextPage();
+    this.fetchLikes();
+  },
+  data: function data() {
+    return {
+      state: __WEBPACK_IMPORTED_MODULE_0__services_store__["a" /* default */].state,
+      fields: {
+        id: {
+          label: 'ID',
+          sortable: true
+        },
+        post_id: {
+          label: 'いいねされた記事',
+          sortable: true
+        },
+        user_id: {
+          label: 'いいねした人',
+          sortable: true
+        },
+        actions: {
+          label: '操作'
+        }
+      },
+      likes: []
+    };
+  },
+
+  methods: {
+    fetchLikes: function fetchLikes() {
+      var _this = this;
+
+      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].get('fetch_likes', function (res) {
+        _this.likes = res.data.likes;
+      });
+    },
+    deleteLike: function deleteLike(likeId) {
+      var _this2 = this;
+
+      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].delete('likes/' + likeId, function (res) {
+        _this2.fetchLikes();
+      });
+    },
+    goNextPage: function goNextPage() {
+      if (this.state.authenticated) {
+        if (!this.state.user.is_admin) {
+          this.$router.push('/top');
+        }
+      } else {
+        this.$router.push('/');
+      }
+    }
+  }
+});
+
+/***/ }),
+/* 120 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "b-table",
+        {
+          staticClass: "mx-auto my-2",
+          attrs: {
+            striped: "",
+            hover: "",
+            items: _vm.likes,
+            fields: _vm.fields,
+            "caption-top": ""
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "actions",
+              fn: function(data) {
+                return [
+                  _c(
+                    "b-btn",
+                    {
+                      attrs: { size: "sm", variant: "danger" },
+                      on: {
+                        click: function($event) {
+                          $event.stopPropagation()
+                          _vm.deleteLike(data.item.id)
+                        }
+                      }
+                    },
+                    [_vm._v("削除")]
+                  )
+                ]
+              }
+            }
+          ])
+        },
+        [
+          _c("template", { slot: "table-caption" }, [
+            _vm._v("\n      Likes\n    ")
+          ])
+        ],
+        2
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-6ca0ffde", module.exports)
+  }
+}
+
+/***/ }),
+/* 121 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(9)
+/* script */
+var __vue_script__ = __webpack_require__(122)
+/* template */
+var __vue_template__ = __webpack_require__(123)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/pages/admin/comment_management.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2885f700", Component.options)
+  } else {
+    hotAPI.reload("data-v-2885f700", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 122 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_store__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_http__ = __webpack_require__(12);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  created: function created() {
+    this.goNextPage();
+    this.fetchComments();
+  },
+  data: function data() {
+    return {
+      state: __WEBPACK_IMPORTED_MODULE_0__services_store__["a" /* default */].state,
+      fields: {
+        id: {
+          label: 'ID',
+          sortable: true
+        },
+        post_id: {
+          label: 'コメント先の記事',
+          sortable: true
+        },
+        content: {
+          label: '内容'
+        },
+        user_id: {
+          label: '投稿者',
+          sortable: true
+        },
+        created_at: {
+          label: '投稿日',
+          sortable: true
+        },
+        actions: {
+          label: '操作'
+        }
+      },
+      comments: []
+    };
+  },
+
+  methods: {
+    fetchComments: function fetchComments() {
+      var _this = this;
+
+      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].get('fetch_comments', function (res) {
+        _this.comments = res.data.comments;
+      });
+    },
+    deleteComment: function deleteComment(commentId) {
+      var _this2 = this;
+
+      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].delete('comments/' + commentId, function (res) {
+        _this2.fetchComments();
+      });
+    },
+    goNextPage: function goNextPage() {
+      if (this.state.authenticated) {
+        if (!this.state.user.is_admin) {
+          this.$router.push('/top');
+        }
+      } else {
+        this.$router.push('/');
+      }
+    }
+  }
+});
+
+/***/ }),
+/* 123 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "b-table",
+        {
+          staticClass: "mx-auto my-2",
+          attrs: {
+            striped: "",
+            hover: "",
+            items: _vm.comments,
+            fields: _vm.fields,
+            "caption-top": ""
+          },
+          scopedSlots: _vm._u([
+            {
+              key: "actions",
+              fn: function(data) {
+                return [
+                  _c(
+                    "b-btn",
+                    {
+                      attrs: { size: "sm", variant: "danger" },
+                      on: {
+                        click: function($event) {
+                          $event.stopPropagation()
+                          _vm.deleteComment(data.item.id)
+                        }
+                      }
+                    },
+                    [_vm._v("削除")]
+                  )
+                ]
+              }
+            }
+          ])
+        },
+        [
+          _c("template", { slot: "table-caption" }, [
+            _vm._v("\n      Comments\n    ")
+          ])
+        ],
+        2
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2885f700", module.exports)
+  }
+}
+
+/***/ }),
 /* 124 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -68281,1022 +69281,6 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 253 */,
-/* 254 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(9)
-/* script */
-var __vue_script__ = __webpack_require__(255)
-/* template */
-var __vue_template__ = __webpack_require__(256)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/pages/admin/management.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4a8f03a0", Component.options)
-  } else {
-    hotAPI.reload("data-v-4a8f03a0", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 255 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_store__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_http__ = __webpack_require__(12);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {
-    this.goNextPage();
-    this.fetchUsers();
-    this.fetchPosts();
-    this.fetchLikes();
-    this.fetchComments();
-  },
-  data: function data() {
-    return {
-      state: __WEBPACK_IMPORTED_MODULE_0__services_store__["a" /* default */].state,
-      users: [],
-      posts: [],
-      likes: [],
-      comments: []
-    };
-  },
-
-  methods: {
-    fetchUsers: function fetchUsers() {
-      var _this = this;
-
-      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].get('fetch_users', function (res) {
-        _this.users = res.data.users;
-      });
-    },
-    fetchPosts: function fetchPosts() {
-      var _this2 = this;
-
-      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].get('fetch_posts', function (res) {
-        _this2.posts = res.data.posts;
-      });
-    },
-    fetchLikes: function fetchLikes() {
-      var _this3 = this;
-
-      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].get('fetch_likes', function (res) {
-        _this3.likes = res.data.likes;
-      });
-    },
-    fetchComments: function fetchComments() {
-      var _this4 = this;
-
-      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].get('fetch_comments', function (res) {
-        _this4.comments = res.data.comments;
-      });
-    },
-    goNextPage: function goNextPage() {
-      if (this.state.authenticated) {
-        if (!this.state.user.is_admin) {
-          this.$router.push('/top');
-        }
-      } else {
-        this.$router.push('/');
-      }
-    }
-  }
-});
-
-/***/ }),
-/* 256 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "b-list-group",
-        { staticClass: "col-8 mx-auto my-2" },
-        [
-          _c(
-            "b-list-group-item",
-            {
-              staticClass: "d-flex justify-content-between align-items-center"
-            },
-            [
-              _vm._v("\n      ユーザー数\n      "),
-              _c("b-badge", { attrs: { variant: "primary", pill: "" } }, [
-                _vm._v(_vm._s(_vm.users.length))
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-list-group-item",
-            {
-              staticClass: "d-flex justify-content-between align-items-center"
-            },
-            [
-              _vm._v("\n      投稿数\n      "),
-              _c("b-badge", { attrs: { variant: "primary", pill: "" } }, [
-                _vm._v(_vm._s(_vm.posts.length))
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-list-group-item",
-            {
-              staticClass: "d-flex justify-content-between align-items-center"
-            },
-            [
-              _vm._v("\n      いいね数\n      "),
-              _c("b-badge", { attrs: { variant: "primary", pill: "" } }, [
-                _vm._v(_vm._s(_vm.likes.length))
-              ])
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-list-group-item",
-            {
-              staticClass: "d-flex justify-content-between align-items-center"
-            },
-            [
-              _vm._v("\n      コメント数\n      "),
-              _c("b-badge", { attrs: { variant: "primary", pill: "" } }, [
-                _vm._v(_vm._s(_vm.comments.length))
-              ])
-            ],
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4a8f03a0", module.exports)
-  }
-}
-
-/***/ }),
-/* 257 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(9)
-/* script */
-var __vue_script__ = __webpack_require__(258)
-/* template */
-var __vue_template__ = __webpack_require__(259)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/pages/admin/user_management.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-348355ac", Component.options)
-  } else {
-    hotAPI.reload("data-v-348355ac", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 258 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_store__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_http__ = __webpack_require__(12);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {
-    this.goNextPage();
-    this.fetchUsers();
-  },
-  data: function data() {
-    return {
-      state: __WEBPACK_IMPORTED_MODULE_0__services_store__["a" /* default */].state,
-      fields: {
-        name: {
-          label: '名前',
-          sortable: true
-        },
-        email: {
-          label: 'メールアドレス',
-          sortable: true
-        },
-        is_admin: {
-          label: '権限',
-          sortable: true
-        },
-        created_at: {
-          lable: '登録日',
-          sortable: true
-        },
-        actions: {
-          label: '操作'
-        }
-      },
-      users: []
-    };
-  },
-
-  methods: {
-    fetchUsers: function fetchUsers() {
-      var _this = this;
-
-      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].get('fetch_users', function (res) {
-        _this.users = res.data.users;
-      });
-    },
-    deleteUser: function deleteUser(userId) {
-      var _this2 = this;
-
-      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].delete('users/' + userId, function (res) {
-        _this2.fetchUsers();
-      });
-    },
-    goNextPage: function goNextPage() {
-      if (this.state.authenticated) {
-        if (!this.state.user.is_admin) {
-          this.$router.push('/top');
-        }
-      } else {
-        this.$router.push('/');
-      }
-    }
-  }
-});
-
-/***/ }),
-/* 259 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "b-table",
-        {
-          staticClass: "mx-auto my-2",
-          attrs: {
-            striped: "",
-            hover: "",
-            items: _vm.users,
-            fields: _vm.fields,
-            "caption-top": ""
-          },
-          scopedSlots: _vm._u([
-            {
-              key: "actions",
-              fn: function(data) {
-                return [
-                  _c(
-                    "b-btn",
-                    {
-                      attrs: { size: "sm", variant: "danger" },
-                      on: {
-                        click: function($event) {
-                          $event.stopPropagation()
-                          _vm.deleteUser(data.item.id)
-                        }
-                      }
-                    },
-                    [_vm._v("削除")]
-                  )
-                ]
-              }
-            }
-          ])
-        },
-        [
-          _c("template", { slot: "table-caption" }, [
-            _vm._v("\n      Users\n    ")
-          ])
-        ],
-        2
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-348355ac", module.exports)
-  }
-}
-
-/***/ }),
-/* 260 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(9)
-/* script */
-var __vue_script__ = __webpack_require__(261)
-/* template */
-var __vue_template__ = __webpack_require__(262)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/pages/admin/post_management.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-08de7896", Component.options)
-  } else {
-    hotAPI.reload("data-v-08de7896", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 261 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_store__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_http__ = __webpack_require__(12);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {
-    this.goNextPage();
-    this.fetchPosts();
-  },
-  data: function data() {
-    return {
-      state: __WEBPACK_IMPORTED_MODULE_0__services_store__["a" /* default */].state,
-      fields: {
-        id: {
-          label: 'ID',
-          sortable: true
-        },
-        content: {
-          label: '内容'
-        },
-        userName: {
-          label: '投稿者',
-          sortable: true
-        },
-        actions: {
-          label: '操作'
-        }
-      },
-      posts: []
-    };
-  },
-
-  methods: {
-    fetchPosts: function fetchPosts() {
-      var _this = this;
-
-      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].get('fetch_posts', function (res) {
-        _this.posts = res.data.posts;
-      });
-    },
-    deletePost: function deletePost(postId) {
-      var _this2 = this;
-
-      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].delete('posts/' + postId, function (res) {
-        _this2.fetchPosts();
-      });
-    },
-    goNextPage: function goNextPage() {
-      if (this.state.authenticated) {
-        if (!this.state.user.is_admin) {
-          this.$router.push('/top');
-        }
-      } else {
-        this.$router.push('/');
-      }
-    }
-  }
-});
-
-/***/ }),
-/* 262 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "b-table",
-        {
-          staticClass: "mx-auto my-2",
-          attrs: {
-            striped: "",
-            hover: "",
-            items: _vm.posts,
-            fields: _vm.fields,
-            "caption-top": ""
-          },
-          scopedSlots: _vm._u([
-            {
-              key: "userName",
-              fn: function(data) {
-                return [
-                  _vm._v("\n      " + _vm._s(data.item.user.name) + "\n    ")
-                ]
-              }
-            },
-            {
-              key: "actions",
-              fn: function(data) {
-                return [
-                  _c(
-                    "b-btn",
-                    {
-                      attrs: { size: "sm", variant: "danger" },
-                      on: {
-                        click: function($event) {
-                          $event.stopPropagation()
-                          _vm.deletePost(data.item.id)
-                        }
-                      }
-                    },
-                    [_vm._v("削除")]
-                  )
-                ]
-              }
-            }
-          ])
-        },
-        [
-          _c("template", { slot: "table-caption" }, [
-            _vm._v("\n      Posts\n    ")
-          ])
-        ],
-        2
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-08de7896", module.exports)
-  }
-}
-
-/***/ }),
-/* 263 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(9)
-/* script */
-var __vue_script__ = __webpack_require__(264)
-/* template */
-var __vue_template__ = __webpack_require__(265)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/pages/admin/like_management.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6ca0ffde", Component.options)
-  } else {
-    hotAPI.reload("data-v-6ca0ffde", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 264 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_store__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_http__ = __webpack_require__(12);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {
-    this.goNextPage();
-    this.fetchLikes();
-  },
-  data: function data() {
-    return {
-      state: __WEBPACK_IMPORTED_MODULE_0__services_store__["a" /* default */].state,
-      fields: {
-        id: {
-          label: 'ID',
-          sortable: true
-        },
-        post_id: {
-          label: 'いいねされた記事',
-          sortable: true
-        },
-        user_id: {
-          label: 'いいねした人',
-          sortable: true
-        },
-        actions: {
-          label: '操作'
-        }
-      },
-      likes: []
-    };
-  },
-
-  methods: {
-    fetchLikes: function fetchLikes() {
-      var _this = this;
-
-      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].get('fetch_likes', function (res) {
-        _this.likes = res.data.likes;
-      });
-    },
-    deleteLike: function deleteLike(likeId) {
-      var _this2 = this;
-
-      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].delete('likes/' + likeId, function (res) {
-        _this2.fetchLikes();
-      });
-    },
-    goNextPage: function goNextPage() {
-      if (this.state.authenticated) {
-        if (!this.state.user.is_admin) {
-          this.$router.push('/top');
-        }
-      } else {
-        this.$router.push('/');
-      }
-    }
-  }
-});
-
-/***/ }),
-/* 265 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "b-table",
-        {
-          staticClass: "mx-auto my-2",
-          attrs: {
-            striped: "",
-            hover: "",
-            items: _vm.likes,
-            fields: _vm.fields,
-            "caption-top": ""
-          },
-          scopedSlots: _vm._u([
-            {
-              key: "actions",
-              fn: function(data) {
-                return [
-                  _c(
-                    "b-btn",
-                    {
-                      attrs: { size: "sm", variant: "danger" },
-                      on: {
-                        click: function($event) {
-                          $event.stopPropagation()
-                          _vm.deleteLike(data.item.id)
-                        }
-                      }
-                    },
-                    [_vm._v("削除")]
-                  )
-                ]
-              }
-            }
-          ])
-        },
-        [
-          _c("template", { slot: "table-caption" }, [
-            _vm._v("\n      Likes\n    ")
-          ])
-        ],
-        2
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-6ca0ffde", module.exports)
-  }
-}
-
-/***/ }),
-/* 266 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(9)
-/* script */
-var __vue_script__ = __webpack_require__(267)
-/* template */
-var __vue_template__ = __webpack_require__(268)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/pages/admin/comment_management.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2885f700", Component.options)
-  } else {
-    hotAPI.reload("data-v-2885f700", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 267 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_store__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_http__ = __webpack_require__(12);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  created: function created() {
-    this.goNextPage();
-    this.fetchComments();
-  },
-  data: function data() {
-    return {
-      state: __WEBPACK_IMPORTED_MODULE_0__services_store__["a" /* default */].state,
-      fields: {
-        id: {
-          label: 'ID',
-          sortable: true
-        },
-        post_id: {
-          label: 'コメント先の記事',
-          sortable: true
-        },
-        content: {
-          label: '内容'
-        },
-        user_id: {
-          label: '投稿者',
-          sortable: true
-        },
-        created_at: {
-          label: '投稿日',
-          sortable: true
-        },
-        actions: {
-          label: '操作'
-        }
-      },
-      comments: []
-    };
-  },
-
-  methods: {
-    fetchComments: function fetchComments() {
-      var _this = this;
-
-      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].get('fetch_comments', function (res) {
-        _this.comments = res.data.comments;
-      });
-    },
-    deleteComment: function deleteComment(commentId) {
-      var _this2 = this;
-
-      __WEBPACK_IMPORTED_MODULE_1__services_http__["a" /* default */].delete('comments/' + commentId, function (res) {
-        _this2.fetchComments();
-      });
-    },
-    goNextPage: function goNextPage() {
-      if (this.state.authenticated) {
-        if (!this.state.user.is_admin) {
-          this.$router.push('/top');
-        }
-      } else {
-        this.$router.push('/');
-      }
-    }
-  }
-});
-
-/***/ }),
-/* 268 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "b-table",
-        {
-          staticClass: "mx-auto my-2",
-          attrs: {
-            striped: "",
-            hover: "",
-            items: _vm.comments,
-            fields: _vm.fields,
-            "caption-top": ""
-          },
-          scopedSlots: _vm._u([
-            {
-              key: "actions",
-              fn: function(data) {
-                return [
-                  _c(
-                    "b-btn",
-                    {
-                      attrs: { size: "sm", variant: "danger" },
-                      on: {
-                        click: function($event) {
-                          $event.stopPropagation()
-                          _vm.deleteComment(data.item.id)
-                        }
-                      }
-                    },
-                    [_vm._v("削除")]
-                  )
-                ]
-              }
-            }
-          ])
-        },
-        [
-          _c("template", { slot: "table-caption" }, [
-            _vm._v("\n      Comments\n    ")
-          ])
-        ],
-        2
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-2885f700", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);

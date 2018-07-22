@@ -16,6 +16,7 @@ Route::middleware('api')->prefix('v1')->group(function() {
     
     Route::post('like',          'LikeController@like');
     Route::post('unlike',        'LikeController@unlike');
+    Route::delete('likes/{id}',  'LikeController@destroy');
     
     // 管理者向けAPI
     Route::get('fetch_users',    'UserController@fetch');

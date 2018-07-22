@@ -34,5 +34,9 @@ class LikeController extends Controller {
       ->first();
       $target->delete();
   }
+  
+  public function destroy($id) {
+    Like::find($id)->delete();
+  }
 
 }
